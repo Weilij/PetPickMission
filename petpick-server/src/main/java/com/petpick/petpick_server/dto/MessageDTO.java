@@ -16,4 +16,7 @@ public class MessageDTO {
         private String senderName;
         private String content;
         private LocalDateTime createdAt;
+        
 }
+
+

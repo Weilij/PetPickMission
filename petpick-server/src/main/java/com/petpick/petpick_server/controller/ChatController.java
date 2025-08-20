@@ -49,4 +49,9 @@ public class ChatController {
     public MessageDTO send(@PathVariable Long id, @RequestBody SendReq req) {
         return svc.send(id, req.senderId(), req.content());
     }
+
+     @PostMapping("/conversations/{id}/read")
+    public void markRead(@PathVariable Long id, @RequestParam Long userId) {
+        svc.markRead(id, userId);
+    }
 }

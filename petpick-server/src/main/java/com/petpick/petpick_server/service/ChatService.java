@@ -89,11 +89,16 @@ public class ChatService {
         c.setLastMessagePreview(text.length() > 200 ? text.substring(0, 200) : text);
 
         return new MessageDTO(
+                msg.getConversation().getConversationId(),
                 msg.getMessageId(),
-                conversationId,
                 senderId,
                 sender.getUsername(),
                 msg.getContent(),
                 msg.getCreatedAt());
+    }
+
+    @Transactional
+    public void markRead(Long conversationId, Long userId) {
+        msgRepo.markAsRead(conversationId, userId);
     }
 }

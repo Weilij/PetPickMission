@@ -39,6 +39,9 @@ public class Message {
     @Column(name = "created_at", nullable = false, columnDefinition = "datetime default current_timestamp")
     private LocalDateTime createdAt = LocalDateTime.now();
 
+    @Column(name = "read_flag", nullable = false)
+    private boolean readFlag = false;
+
 
     
 
